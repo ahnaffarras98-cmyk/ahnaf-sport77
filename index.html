@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anap Sport - Toko Sepatu Daily & Olahraga Original</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        anapred: '#ff3b30',
+                        anaporange: '#ff6b00',
+                        anapdark: '#0a0d14',
+                        anapcard: '#121824',
+                        anapborder: '#1f293d',
+                        anapaccent: '#00e5ff'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080b11;
+            color: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0d131f;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #28354e;
+            border-radius: 9999px;
+        }
+        .glass-card {
+            background: rgba(18, 24, 36, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-red {
+            box-shadow: 0 0 25px -5px rgba(255, 59, 48, 0.35);
+        }
+        .glow-orange {
+            box-shadow: 0 0 25px -5px rgba(255, 107, 0, 0.35);
+        }
+        .glow-green {
+            box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.4);
+        }
+        .badge-pulse {
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.03); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white custom-scrollbar">
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-red-700 via-orange-600 to-amber-600 text-white text-[11px] sm:text-xs py-1.5 px-4 font-bold border-b border-orange-500/20">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 bg-black/30 px-2 py-0.5 rounded-full border border-white/20">
+                    <i class="fa-solid fa-truck-fast text-amber-300 animate-bounce"></i> PROMO TKJ
+                </span>
+                <span>Gratis Ongkir Seluruh Indonesia Min. Belanja Rp250.000!</span>
+            </div>
+            <div class="flex items-center gap-4 text-[11px] text-orange-100">
+                <a href="https://wa.me/6285817168706" target="_blank" class="hover:text-white transition flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-emerald-300"></i> CS WA: 085817168706
+                </a>
+                <span>|</span>
+                <button onclick="switchTab('size-guide')" class="hover:text-white transition flex items-center gap-1">
+                    <i class="fa-solid fa-ruler-horizontal"></i> Panduan Ukuran
+                </button>
+                <span>|</span>
+                <button onclick="switchTab('check-order')" class="hover:text-white transition flex items-center gap-1">
+                    <i class="fa-solid fa-magnifying-glass"></i> Cek Resi
+                </button>
+                <span>|</span>
+                <button onclick="switchTab('about')" class="hover:text-white transition flex items-center gap-1">
+                    <i class="fa-solid fa-graduation-cap"></i> Proyek SMK TKJ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/80 shadow-2xl backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20 gap-4">
+                
+                <!-- Brand Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer flex-shrink-0" onclick="switchTab('home')">
+                    <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-slate-900/90 border border-slate-700/80 p-1 flex items-center justify-center shadow-lg shadow-orange-950/40 hover:scale-105 transition-transform">
+                        <svg class="w-full h-full object-contain" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Motion Swooshes -->
+                            <path d="M 42 80 C 42 45 72 38 80 68 C 72 43 48 48 42 80 Z" fill="#006666"/>
+                            <path d="M 83 67 C 86 32 120 28 128 58 C 119 32 91 36 83 67 Z" fill="#14b8a6"/>
+                            <path d="M 129 40 C 150 42 156 82 142 89 C 158 72 146 42 129 40 Z" fill="#e11d48"/>
+                            <path d="M 148 82 C 162 92 161 108 148 112 C 162 102 158 86 148 82 Z" fill="#0f2b38"/>
+
+                            <!-- Back Teal Shoe -->
+                            <g>
+                                <path d="M 102 73 C 105 73 120 73 124 88 C 128 100 138 108 145 118 L 118 118 C 112 110 106 102 102 95 Z" fill="#0d5c5c"/>
+                                <path d="M 105 73 Q 120 73 125 85 L 140 108 Q 130 118 110 118 Q 105 100 105 73 Z" fill="#117a7a"/>
+                                <line x1="114" y1="88" x2="124" y2="92" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="117" y1="94" x2="127" y2="98" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="120" y1="100" x2="130" y2="104" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- Front Yellow/Orange & Red Shoe -->
+                            <g>
+                                <path d="M 54 90 C 65 90 76 78 86 78 C 96 78 100 95 120 102 C 135 107 145 118 148 123 L 42 123 C 44 110 46 90 54 90 Z" fill="#f59e0b"/>
+                                <path d="M 54 90 C 60 90 62 98 68 102 L 48 115 C 44 105 48 94 54 90 Z" fill="#dc2626"/>
+                                <path d="M 91 123 C 105 123 125 123 148 123 C 145 118 135 110 118 106 L 91 123 Z" fill="#dc2626"/>
+                                
+                                <line x1="72" y1="90" x2="88" y2="92" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="77" y1="96" x2="94" y2="98" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="82" y1="102" x2="100" y2="104" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="87" y1="108" x2="106" y2="110" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="92" y1="114" x2="112" y2="116" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+                                <path d="M 40 123 Q 95 121 152 123 Q 155 127 150 133 Q 95 136 40 133 Q 38 127 40 123 Z" fill="#f8fafc"/>
+                                <path d="M 41 133 Q 95 136 150 133 C 156 138 148 144 140 144 Q 130 138 115 142 Q 95 138 80 142 Q 60 138 48 144 C 40 140 38 136 41 133 Z" fill="#0f2b38"/>
+                            </g>
+
+                            <!-- Bottom Green Brush Line -->
+                            <path d="M 52 162 Q 98 159 148 162 Q 98 165 52 162 Z" fill="#10b981"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="text-xl sm:text-2xl font-black tracking-wider text-white">ANAP<span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">SPORT</span></span>
+                            <span class="text-[9px] font-extrabold bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded border border-orange-500/30">ORIGINAL</span>
+                        </div>
+                        <p class="text-[9px] sm:text-[10px] text-slate-400 font-semibold tracking-wider">SEPATU DAILY & OLAHRAGA</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-4 relative">
+                    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Cari sepatu running, casual, futsal, sneakers..." 
+                           class="w-full bg-slate-950/90 text-sm text-slate-200 placeholder-slate-500 rounded-2xl pl-11 pr-20 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500 transition-all">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+                    <button onclick="filterProducts()" class="absolute right-1.5 top-1.5 px-3.5 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold transition">
+                        Cari
+                    </button>
+                </div>
+
+                <!-- Navigation Actions -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <button onclick="switchTab('home')" class="p-2.5 rounded-xl text-slate-300 hover:text-orange-400 hover:bg-slate-800/80 text-xs font-bold hidden sm:flex items-center gap-1.5">
+                        <i class="fa-solid fa-store text-orange-500"></i> Katalog Sepatu
+                    </button>
+                    
+                    <a href="https://wa.me/6285817168706" target="_blank" class="p-2.5 rounded-xl text-emerald-400 hover:bg-emerald-950/50 border border-emerald-500/30 text-xs font-bold hidden md:flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Chat WA
+                    </a>
+
+                    <!-- Cart Drawer Trigger Button -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2.5 sm:px-4 sm:py-2.5 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-orange-950/40">
+                        <i class="fa-solid fa-bag-shopping text-sm"></i>
+                        <span class="hidden sm:inline">Keranjang</span>
+                        <span id="cartBadge" class="bg-white text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border border-orange-500">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Trigger -->
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 sm:hidden">
+                        <i class="fa-solid fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search & Quick Nav Menu -->
+            <div id="mobileMenu" class="hidden sm:hidden border-t border-slate-800/80 py-3 space-y-3">
+                <div class="relative">
+                    <input type="text" id="searchInputMobile" oninput="filterProductsMobile()" placeholder="Cari sepatu di Anap Sport..." 
+                           class="w-full bg-slate-950 text-sm text-slate-200 placeholder-slate-500 rounded-xl pl-10 pr-4 py-2 border border-slate-800 focus:outline-none focus:border-orange-500">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-500 text-xs"></i>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center text-xs font-bold">
+                    <button onclick="switchTab('home')" class="py-2 rounded-lg bg-slate-800 text-slate-200"><i class="fa-solid fa-shoe-prints mr-1 text-orange-400"></i> Produk</button>
+                    <button onclick="switchTab('check-order')" class="py-2 rounded-lg bg-slate-800 text-slate-200"><i class="fa-solid fa-box mr-1 text-amber-400"></i> Lacak</button>
+                    <a href="https://wa.me/6285817168706" target="_blank" class="py-2 rounded-lg bg-emerald-900/60 border border-emerald-500/40 text-emerald-300 flex items-center justify-center"><i class="fa-brands fa-whatsapp mr-1 text-emerald-400"></i> Contact WA</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- ================= VIEW 1: KATALOG & HOME PAGE ================= -->
+        <div id="view-home" class="space-y-8">
+            
+            <!-- Hero Promo Banner -->
+            <div class="relative rounded-3xl overflow-hidden glass-card border border-orange-500/30 p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 min-h-[320px] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 shadow-2xl glow-orange">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-orange-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 space-y-4 max-w-xl text-center lg:text-left">
+                    <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-300 border border-orange-500/40 badge-pulse">
+                        <i class="fa-solid fa-fire text-orange-400"></i> ANAP SPORT NEW COLLECTION 2026
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+                        Langkah Nyaman <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-red-400">Gaya Daily & Olahraga Maksimal</span>
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Temukan koleksi sepatu lari (running), futsal, basket, serta sepatu casual harian original dengan bantalan empuk, bahan breathable, dan garansi tukar size.
+                    </p>
+                    
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                        <button onclick="filterCategory('olahraga')" class="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-extrabold text-xs transition shadow-lg flex items-center gap-2">
+                            <i class="fa-solid fa-running"></i> Sepatu Olahraga
+                        </button>
+                        <button onclick="filterCategory('daily')" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-extrabold text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-shoe-prints"></i> Sepatu Daily / Casual
+                        </button>
+                        <a href="https://wa.me/6285817168706?text=Halo%20Anap%20Sport!%20Saya%20ingin%20tanya%20stok%20sepatu%20olahraga%20&%20daily." target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition shadow-lg flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WA Fast Response
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Featured Hero Shoe Display Image -->
+                <div class="relative z-10 w-full max-w-md flex items-center justify-center">
+                    <div class="relative group cursor-pointer" onclick="openQuickView('sp_run_01')">
+                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-70 transition"></div>
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/f8fafc?text=Anap+Sport+Runner+Red';"
+                             alt="Anap Sport Hero Shoe" 
+                             class="relative rounded-3xl shadow-2xl border border-slate-800 group-hover:scale-105 transition duration-500 object-cover w-full h-56 sm:h-64">
+                        <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-orange-500/40 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-left">
+                            <p class="text-[9px] text-orange-400 font-extrabold uppercase">HOT ITEM</p>
+                            <p class="text-xs font-bold text-white">Anap SpeedRunner Pro Red</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Sales Ticker -->
+            <div class="glass-card rounded-2xl p-3 border border-slate-800/80 flex items-center overflow-hidden gap-3">
+                <div class="flex items-center gap-2 bg-orange-600/20 text-orange-300 font-extrabold text-xs px-3 py-1.5 rounded-xl border border-orange-500/30 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>LIVE ORDER</span>
+                </div>
+                <div class="overflow-hidden relative w-full text-xs text-slate-300">
+                    <div id="liveSalesTicker" class="whitespace-nowrap transition-all duration-500 font-medium">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-orange-500"></i> Katalog Sepatu Anap Sport
+                    </h2>
+                    <span class="text-xs text-slate-400">Pilih kategori untuk melihat koleksi lengkap</span>
+                </div>
+
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar text-xs font-bold">
+                    <button onclick="filterCategory('all')" id="cat-all" class="cat-btn active-cat px-4 py-2.5 rounded-xl bg-orange-600 text-white flex items-center gap-2 flex-shrink-0 transition shadow-md">
+                        <i class="fa-solid fa-border-all"></i> Semua Sepatu
+                    </button>
+                    <button onclick="filterCategory('daily')" id="cat-daily" class="cat-btn px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-orange-500 flex items-center gap-2 flex-shrink-0 transition">
+                        <i class="fa-solid fa-shoe-prints text-amber-400"></i> Sepatu Daily / Casual
+                    </button>
+                    <button onclick="filterCategory('olahraga')" id="cat-olahraga" class="cat-btn px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-orange-500 flex items-center gap-2 flex-shrink-0 transition">
+                        <i class="fa-solid fa-person-running text-red-400"></i> Sepatu Olahraga
+                    </button>
+                    <button onclick="filterCategory('futsal')" id="cat-futsal" class="cat-btn px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-orange-500 flex items-center gap-2 flex-shrink-0 transition">
+                        <i class="fa-solid fa-futbol text-emerald-400"></i> Futsal & Bola
+                    </button>
+                    <button onclick="filterCategory('basket')" id="cat-basket" class="cat-btn px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-orange-500 flex items-center gap-2 flex-shrink-0 transition">
+                        <i class="fa-solid fa-basketball text-orange-400"></i> Basket
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Dynamically rendered via JS -->
+            </div>
+        </div>
+
+        <!-- ================= VIEW 2: CHECK ORDER / TRACKING ================= -->
+        <div id="view-check-order" class="hidden max-w-2xl mx-auto space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-16 h-16 bg-orange-600/20 text-orange-400 rounded-3xl flex items-center justify-center mx-auto text-3xl border border-orange-500/30 glow-orange">
+                    <i class="fa-solid fa-box-archive"></i>
+                </div>
+                <h2 class="text-2xl font-black text-white">Lacak Pesanan Anap Sport</h2>
+                <p class="text-xs text-slate-400">Masukkan Kode Pesanan / Invoice Anda (Contoh: ANAP-98123) untuk melihat status pengiriman</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-3xl space-y-4 border border-slate-800">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1.5">Kode Transaksi / Invoice</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="trackOrderInput" placeholder="ANAP-XXXXX" 
+                               class="flex-grow bg-slate-950 text-slate-200 text-sm rounded-xl px-4 py-3 border border-slate-800 focus:outline-none focus:border-orange-500 uppercase font-mono">
+                        <button onclick="trackOrderProcess()" class="px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm transition shadow-lg">
+                            Cek Resi
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tracking Status Timeline -->
+                <div id="trackResultContainer" class="hidden border-t border-slate-800/80 pt-5 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-slate-500 font-bold uppercase">Status Pengiriman Sepatu</span>
+                            <h4 id="trackStatusText" class="text-sm font-bold text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-check"></i> DALAM PENGIRIMAN (KURIR J&T)
+                            </h4>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">Estimasi Tiba: 1-2 Hari</span>
+                    </div>
+
+                    <div class="space-y-4 pl-4 border-l-2 border-slate-800 text-xs">
+                        <div class="relative pl-4">
+                            <span class="absolute -left-[21px] top-0 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-slate-900"></span>
+                            <h5 class="font-bold text-white">Paket Sepatu Diserahkan ke Kurir</h5>
+                            <p class="text-slate-400 text-[11px]">Kurir J&T Express sedang menuju alamat tujuan</p>
+                        </div>
+                        <div class="relative pl-4">
+                            <span class="absolute -left-[21px] top-0 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-slate-900"></span>
+                            <h5 class="font-bold text-white">Gudang Anap Sport Selesai Packing Quality Control</h5>
+                            <p class="text-slate-400 text-[11px]">Sepatu telah dipastikan fisik mulus dan dipasang bubble wrap double</p>
+                        </div>
+                        <div class="relative pl-4">
+                            <span class="absolute -left-[21px] top-0 w-3 h-3 rounded-full bg-slate-700"></span>
+                            <h5 class="font-bold text-slate-300">Pembayaran Terverifikasi Sistem</h5>
+                            <p class="text-slate-400 text-[11px]">Invoice diterbitkan oleh Anap Sport Payment Server</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW 3: SIZE GUIDE ================= -->
+        <div id="view-size-guide" class="hidden max-w-3xl mx-auto space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-16 h-16 bg-cyan-500/20 text-cyan-400 rounded-3xl flex items-center justify-center mx-auto text-3xl border border-cyan-500/30">
+                    <i class="fa-solid fa-ruler-horizontal"></i>
+                </div>
+                <h2 class="text-2xl font-black text-white">Panduan Ukuran Sepatu (Size Chart)</h2>
+                <p class="text-xs text-slate-400">Ukur panjang telapak kaki Anda dari tumit hingga ujung jempol kaki (dalam CM)</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-3xl space-y-5 border border-slate-800">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-950 text-slate-300 border-b border-slate-800">
+                                <th class="p-3">Size EU</th>
+                                <th class="p-3">Panjang Kaki (CM)</th>
+                                <th class="p-3">Rekomendasi Jenis Kaki</th>
+                                <th class="p-3">Keterangan Fit</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                            <tr><td class="p-3 font-extrabold text-orange-400">38</td><td class="p-3">24.0 cm</td><td class="p-3">Remaja / Dewasa Kecil</td><td class="p-3">Snug Fit</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">39</td><td class="p-3">24.5 cm</td><td class="p-3">Dewasa Sedang</td><td class="p-3">Regular Fit</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">40</td><td class="p-3">25.0 cm</td><td class="p-3">Dewasa Standar ID</td><td class="p-3">Regular Fit</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">41</td><td class="p-3">26.0 cm</td><td class="p-3">Dewasa Standar ID</td><td class="p-3">Comfort Fit</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">42</td><td class="p-3">26.5 cm</td><td class="p-3">Kaki Lebar (Wide)</td><td class="p-3">Comfort Fit</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">43</td><td class="p-3">27.5 cm</td><td class="p-3">Kaki Tinggi / Lebar</td><td class="p-3">Extra Space</td></tr>
+                            <tr><td class="p-3 font-extrabold text-orange-400">44</td><td class="p-3">28.0 cm</td><td class="p-3">Ukuran Besar</td><td class="p-3">Extra Space</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-950 border border-amber-500/30 text-xs text-amber-300 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-info text-lg flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong class="block mb-1 font-extrabold">Tips Memilih Ukuran Sepatu:</strong>
+                        Jika bentuk telapak kaki kamu cenderung lebar (wide feet), disarankan memilih <strong>1 size lebih besar</strong> (upsize) dari ukuran normal agar jempol kaki tidak tertekan saat dipakai berolahraga maupun harian.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW 4: SMK TKJ PROJECT INFO ================= -->
+        <div id="view-about" class="hidden max-w-3xl mx-auto space-y-6">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-slate-800">
+                <div class="flex items-center space-x-4 border-b border-slate-800 pb-5">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-600 via-amber-500 to-red-500 flex items-center justify-center text-white text-2xl font-black shadow-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-black text-white">Tentang Anap Sport E-Commerce</h2>
+                        <p class="text-xs text-orange-400 font-semibold">Proyek Website Jual Beli Sepatu - Siswa SMK TKJ</p>
+                    </div>
+                </div>
+
+                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-4">
+                    <p>
+                        <strong class="text-white">Anap Sport</strong> adalah simulasi platform e-commerce jualan sepatu daily & olahraga interaktif berbasis web client-side modern yang dikembangkan oleh siswa jurusan <span class="text-orange-400 font-bold">Teknik Komputer dan Jaringan (TKJ)</span>.
+                    </p>
+
+                    <!-- Official Contacts Section -->
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-orange-500/30 space-y-3">
+                        <h4 class="font-extrabold text-orange-400 text-xs flex items-center gap-2 uppercase tracking-wider">
+                            <i class="fa-solid fa-address-card"></i> Kontak Resmi Admin
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <a href="https://www.instagram.com/anappfrras" target="_blank" class="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 flex items-center gap-3 transition">
+                                <i class="fa-brands fa-instagram text-pink-500 text-xl"></i>
+                                <div>
+                                    <span class="block text-slate-400 text-[10px]">Instagram Official</span>
+                                    <span class="font-bold text-white">@anappfrras</span>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/6285817168706" target="_blank" class="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 flex items-center gap-3 transition">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                                <div>
+                                    <span class="block text-slate-400 text-[10px]">WhatsApp Official</span>
+                                    <span class="font-bold text-white">085817168706</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                            <h4 class="font-bold text-white text-xs flex items-center gap-2">
+                                <i class="fa-solid fa-code text-orange-400"></i> Fitur Front-End E-Commerce
+                            </h4>
+                            <ul class="text-xs text-slate-400 space-y-1.5">
+                                <li>• Filter Katalog Sepatu Daily & Olahraga</li>
+                                <li>• Pilihan Size Kaki (38-44) & Warna Produk</li>
+                                <li>• Keranjang Belanja dengan Sistem State JS</li>
+                                <li>• Checkout Direct WA & Form Pengiriman</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                            <h4 class="font-bold text-white text-xs flex items-center gap-2">
+                                <i class="fa-solid fa-network-wired text-amber-400"></i> Integrasi Sistem TKJ
+                            </h4>
+                            <ul class="text-xs text-slate-400 space-y-1.5">
+                                <li>• Simulasi Server Payment Gateway QRIS</li>
+                                <li>• Algoritma Lacak Resi Pengiriman Otomatis</li>
+                                <li>• Desain UI/UX Responsive Mobile & Desktop</li>
+                                <li>• Penyimpanan Transaksi LocalStorage Browser</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- PRODUCT QUICK VIEW MODAL -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-3xl overflow-hidden relative shadow-2xl">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-950/80 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="quickViewContent" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART SLIDE DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-slate-900 border-l border-slate-800 flex flex-col justify-between shadow-2xl">
+                
+                <!-- Drawer Header -->
+                <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-orange-500 text-lg"></i>
+                        <h3 class="text-base font-black text-white">Keranjang Anap Sport</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white p-1">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Drawer Cart Items Container -->
+                <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Drawer Footer Summary & Checkout Button -->
+                <div class="p-5 border-t border-slate-800 bg-slate-950 space-y-3">
+                    <div class="space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-400">
+                            <span>Total Item:</span>
+                            <span id="cartTotalItems" class="text-white font-bold">0 Pasang</span>
+                        </div>
+                        <div class="flex justify-between text-base font-black text-white pt-2 border-t border-slate-800">
+                            <span>Total Harga:</span>
+                            <span id="cartTotalPrice" class="text-orange-400 text-lg">Rp 0</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 hover:opacity-95 text-white font-black text-sm transition shadow-lg flex items-center justify-center gap-2 uppercase">
+                        <i class="fa-solid fa-credit-card"></i> Lanjut Ke Pembayaran
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT & PAYMENT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-xl p-5 sm:p-7 space-y-5 relative shadow-2xl my-8">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-600/20 text-orange-400 flex items-center justify-center text-xl font-black">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white">Checkout Sepatu Anap Sport</h3>
+                    <p class="text-xs text-slate-400">Isi data pengiriman & pilih metode pembayaran</p>
+                </div>
+            </div>
+
+            <form id="checkoutForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
+                <!-- Customer Information -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-400 mb-1">Nama Penerima</label>
+                        <input type="text" id="custName" required placeholder="Contoh: Budi Santoso" class="w-full bg-slate-950 text-slate-200 rounded-xl px-4 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-400 mb-1">No. WhatsApp Active</label>
+                        <input type="tel" id="custPhone" required placeholder="085817168706" class="w-full bg-slate-950 text-slate-200 rounded-xl px-4 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-400 mb-1">Alamat Lengkap Pengiriman</label>
+                    <textarea id="custAddress" required rows="2" placeholder="Nama Jalan, No. Rumah, RT/RW, Kecamatan, Kota & Kode Pos" class="w-full bg-slate-950 text-slate-200 rounded-xl px-4 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500"></textarea>
+                </div>
+
+                <!-- Courier Selection -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-400 mb-1">Ekspedisi Pengiriman</label>
+                        <select id="courierSelect" onchange="updateGrandTotalCheckout()" class="w-full bg-slate-950 text-slate-200 rounded-xl px-3 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500">
+                            <option value="15000">J&T Express - Rp15.000 (Reguler)</option>
+                            <option value="18000">JNE YES - Rp18.000 (Kilat 1 Hari)</option>
+                            <option value="12000">SiCepat HALU - Rp12.000 (Hemat)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-400 mb-1">Metode Pembayaran</label>
+                        <select id="paySelect" class="w-full bg-slate-950 text-slate-200 rounded-xl px-3 py-2.5 border border-slate-800 focus:outline-none focus:border-orange-500 font-bold text-orange-400">
+                            <option value="QRIS AnapPay">QRIS (Bisa All E-Wallet & Bank)</option>
+                            <option value="WhatsApp Direct Chat">WhatsApp Direct Order (085817168706)</option>
+                            <option value="DANA E-Wallet">DANA Instant</option>
+                            <option value="GoPay / ShopeePay">GoPay / ShopeePay</option>
+                            <option value="BCA Virtual Account">BCA Virtual Account</option>
+                            <option value="COD Bayar di Tempat">COD (Bayar di Tempat)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Promo Code -->
+                <div>
+                    <label class="block font-semibold text-slate-400 mb-1">Kode Voucher Diskon (Opsional)</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="checkoutPromoInput" placeholder="Contoh: ANAP10 atau TKJSPORT" class="flex-grow bg-slate-950 text-slate-200 rounded-xl px-4 py-2 border border-slate-800 focus:outline-none focus:border-orange-500 font-mono uppercase">
+                        <button type="button" onclick="applyCheckoutPromo()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-orange-400 font-bold rounded-xl border border-slate-700">Gunakan</button>
+                    </div>
+                </div>
+
+                <!-- Order Final Summary Box -->
+                <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div class="flex justify-between text-slate-400"><span>Subtotal Sepatu:</span><span id="coSubtotal" class="font-bold text-white">Rp 0</span></div>
+                    <div class="flex justify-between text-slate-400"><span>Ongkos Kirim:</span><span id="coShipping" class="font-bold text-white">Rp 15.000</span></div>
+                    <div id="coDiscountRow" class="hidden flex justify-between text-emerald-400"><span>Diskon Voucher:</span><span id="coDiscountVal" class="font-bold">-Rp 0</span></div>
+                    <div class="flex justify-between text-sm sm:text-base font-black text-white pt-2 border-t border-slate-800">
+                        <span>Total Pembayaran:</span>
+                        <span id="coGrandTotal" class="text-orange-400">Rp 0</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 hover:opacity-95 text-white font-black text-sm shadow-xl transition uppercase tracking-wider flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock"></i> Buat Pesanan Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- INVOICE PAYMENT DISPLAY MODAL SIMULATION -->
+    <div id="invoiceModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-md p-6 space-y-5 text-center relative shadow-2xl">
+            <button onclick="closeInvoiceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+
+            <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">
+                <i class="fa-solid fa-qrcode"></i>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-black text-white">Invoice Pembayaran Anap Sport</h3>
+                <p class="text-xs text-slate-400">Selesaikan pembayaran atau konfirmasi via WhatsApp</p>
+            </div>
+
+            <!-- QR Code Simulation -->
+            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">NMID: ID10928301923 - ANAP SPORT STORE</span>
+                <div class="bg-white p-3 inline-block rounded-2xl shadow-lg">
+                    <svg class="w-36 h-36" viewBox="0 0 100 100" fill="none">
+                        <rect width="100" height="100" fill="white"/>
+                        <path d="M0 0H35V35H0V0ZM7 7V28H28V7H7Z" fill="black"/>
+                        <path d="M14 14H21V21H14V14Z" fill="black"/>
+                        <path d="M65 0H100V35H65V0ZM72 7V28H93V7H72Z" fill="black"/>
+                        <path d="M79 14H86V21H79V14Z" fill="black"/>
+                        <path d="M0 65H35V100H0V65ZM7 72V93H28V72H7Z" fill="black"/>
+                        <path d="M14 79H21V86H14V79Z" fill="black"/>
+                        <rect x="42" y="42" width="16" height="16" fill="black"/>
+                        <rect x="45" y="10" width="10" height="20" fill="black"/>
+                        <rect x="10" y="45" width="20" height="10" fill="black"/>
+                    </svg>
+                </div>
+                <p class="text-[11px] text-orange-400 font-bold">Waktu Pembayaran: <span id="paymentTimer" class="font-mono">23 : 59 : 50</span></p>
+            </div>
+
+            <!-- Order Details -->
+            <div class="text-xs space-y-2 text-left bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div class="flex justify-between"><span class="text-slate-500">No. Invoice:</span><span id="invNo" class="font-mono font-bold text-orange-400">ANAP-00000</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Nama Penerima:</span><span id="invName" class="font-semibold text-white">-</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Metode Bayar:</span><span id="invPay" class="font-semibold text-cyan-400">-</span></div>
+                <div class="flex justify-between border-t border-slate-800 pt-2"><span class="text-slate-300 font-bold">Total Tagihan:</span><span id="invTotal" class="font-black text-orange-400 text-sm">Rp 0</span></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="space-y-2">
+                <button onclick="sendOrderToWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Konfirmasi Pesanan via WA (085817168706)
+                </button>
+                <button onclick="simulatePaymentSuccess()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition border border-slate-700 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i> Simulasi Bayar Berhasil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-16 border-t border-slate-800/80 bg-slate-950/90 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs">
+                
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 p-1 flex items-center justify-center">
+                            <svg class="w-full h-full object-contain" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 42 80 C 42 45 72 38 80 68 C 72 43 48 48 42 80 Z" fill="#006666"/>
+                                <path d="M 83 67 C 86 32 120 28 128 58 C 119 32 91 36 83 67 Z" fill="#14b8a6"/>
+                                <path d="M 129 40 C 150 42 156 82 142 89 C 158 72 146 42 129 40 Z" fill="#e11d48"/>
+                                <path d="M 148 82 C 162 92 161 108 148 112 C 162 102 158 86 148 82 Z" fill="#0f2b38"/>
+
+                                <g>
+                                    <path d="M 102 73 C 105 73 120 73 124 88 C 128 100 138 108 145 118 L 118 118 C 112 110 106 102 102 95 Z" fill="#0d5c5c"/>
+                                    <path d="M 105 73 Q 120 73 125 85 L 140 108 Q 130 118 110 118 Q 105 100 105 73 Z" fill="#117a7a"/>
+                                    <line x1="114" y1="88" x2="124" y2="92" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="117" y1="94" x2="127" y2="98" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="120" y1="100" x2="130" y2="104" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                </g>
+
+                                <g>
+                                    <path d="M 54 90 C 65 90 76 78 86 78 C 96 78 100 95 120 102 C 135 107 145 118 148 123 L 42 123 C 44 110 46 90 54 90 Z" fill="#f59e0b"/>
+                                    <path d="M 54 90 C 60 90 62 98 68 102 L 48 115 C 44 105 48 94 54 90 Z" fill="#dc2626"/>
+                                    <path d="M 91 123 C 105 123 125 123 148 123 C 145 118 135 110 118 106 L 91 123 Z" fill="#dc2626"/>
+                                    
+                                    <line x1="72" y1="90" x2="88" y2="92" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="77" y1="96" x2="94" y2="98" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="82" y1="102" x2="100" y2="104" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="87" y1="108" x2="106" y2="110" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="92" y1="114" x2="112" y2="116" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+                                    <path d="M 40 123 Q 95 121 152 123 Q 155 127 150 133 Q 95 136 40 133 Q 38 127 40 123 Z" fill="#f8fafc"/>
+                                    <path d="M 41 133 Q 95 136 150 133 C 156 138 148 144 140 144 Q 130 138 115 142 Q 95 138 80 142 Q 60 138 48 144 C 40 140 38 136 41 133 Z" fill="#0f2b38"/>
+                                </g>
+
+                                <path d="M 52 162 Q 98 159 148 162 Q 98 165 52 162 Z" fill="#10b981"/>
+                            </svg>
+                        </div>
+                        <span class="font-black text-white tracking-wider text-base">ANAP SPORT</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Toko sepatu terpercaya menyediakan sepatu daily/casual dan sepatu olahraga original dengan jaminan kenyamanan & mutu terbaik.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-3 text-sm">Kategori Sepatu</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#" onclick="filterCategory('daily'); return false;" class="hover:text-orange-400 transition">Sepatu Daily / Sneakers</a></li>
+                        <li><a href="#" onclick="filterCategory('olahraga'); return false;" class="hover:text-orange-400 transition">Sepatu Running / Lari</a></li>
+                        <li><a href="#" onclick="filterCategory('futsal'); return false;" class="hover:text-orange-400 transition">Sepatu Futsal & Sepakbola</a></li>
+                        <li><a href="#" onclick="filterCategory('basket'); return false;" class="hover:text-orange-400 transition">Sepatu Basket High Top</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-3 text-sm">Layanan Pelanggan</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><button onclick="switchTab('size-guide')" class="hover:text-orange-400 transition">Panduan Ukuran Kaki</button></li>
+                        <li><button onclick="switchTab('check-order')" class="hover:text-orange-400 transition">Cek Status Resi Pesanan</button></li>
+                        <li><a href="#" onclick="showToast('Garansi tukar size berlaku 7 hari setelah barang sampai!', 'info'); return false;" class="hover:text-orange-400 transition">Garansi Return Size</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-3 text-sm">Kontak Resmi & Lokasi</h4>
+                    <p class="text-slate-400 leading-relaxed mb-2">
+                        <i class="fa-solid fa-location-dot text-orange-500 mr-1.5"></i> Lab Praktik Komputer SMK Jurusan TKJ
+                    </p>
+                    <p class="text-slate-300 font-semibold mb-1">
+                        <a href="https://wa.me/6285817168706" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i> WA: 085817168706
+                        </a>
+                    </p>
+                    <p class="text-slate-300 font-semibold">
+                        <a href="https://www.instagram.com/anappfrras" target="_blank" class="hover:text-pink-400 transition flex items-center gap-1.5">
+                            <i class="fa-brands fa-instagram text-pink-500 text-sm"></i> IG: @anappfrras
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 Anap Sport E-Commerce. Proyek SMK Jurusan TKJ.</p>
+                <div class="flex space-x-4 text-lg text-slate-400">
+                    <a href="https://www.instagram.com/anappfrras" target="_blank" class="hover:text-pink-400 transition" title="Instagram @anappfrras"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/6285817168706" target="_blank" class="hover:text-emerald-400 transition" title="WhatsApp 085817168706"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6285817168706?text=Halo%20Anap%20Sport!%20Saya%20ingin%20tanya-tanya%20seputar%20sepatu." 
+       target="_blank" 
+       class="fixed bottom-5 left-5 z-40 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl flex items-center gap-2 font-bold text-xs transition duration-300 glow-green group">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="hidden group-hover:inline pr-1 transition">Chat CS (085817168706)</span>
+    </a>
+
+    <!-- TOAST NOTIFICATION FLOATING -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 border border-orange-500 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMsg" class="text-xs font-bold">Notifikasi Anap Sport</span>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Real Shoe Products Database
+        const productsData = [
+            {
+                id: 'sp_run_01',
+                title: 'SpeedRunner Pro Red',
+                category: 'olahraga',
+                categoryLabel: 'Sepatu Olahraga / Lari',
+                price: 349000,
+                originalPrice: 499000,
+                badge: 'BEST SELLER',
+                badgeBg: 'bg-red-600 text-white',
+                rating: 4.9,
+                reviews: 128,
+                image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu lari ultralight dengan bantalan AirCushion empuk yang meredam benturan saat joging maupun marathon. Atasan rajut breathable menyerap keringat dengan baik.',
+                availableSizes: [38, 39, 40, 41, 42, 43, 44],
+                colors: ['Red Flare', 'Black Cyan']
+            },
+            {
+                id: 'sp_daily_01',
+                title: 'StreetWalker Casual White',
+                category: 'daily',
+                categoryLabel: 'Sepatu Daily / Sneakers',
+                price: 289000,
+                originalPrice: 380000,
+                badge: 'DAILY CHOICE',
+                badgeBg: 'bg-amber-500 text-slate-950',
+                rating: 4.8,
+                reviews: 95,
+                image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu sneakers daily kasual warna putih kekinian cocok untuk nongkrong, sekolah, maupun kuliah. Material sintetis leather mudah dibersihkan.',
+                availableSizes: [38, 39, 40, 41, 42, 43],
+                colors: ['Pure White', 'White Pastel']
+            },
+            {
+                id: 'sp_futsal_01',
+                title: 'Strike Futsal Pro Neon',
+                category: 'futsal',
+                categoryLabel: 'Sepatu Futsal & Bola',
+                price: 319000,
+                originalPrice: 420000,
+                badge: 'PROMO HOT',
+                badgeBg: 'bg-emerald-600 text-white',
+                rating: 4.9,
+                reviews: 210,
+                image: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu futsal indoor dengan sol karet gum anti-selip di lapangan semen maupun rumput sintetis. Mengakomodasi operan presisi dan tendangan keras.',
+                availableSizes: [39, 40, 41, 42, 43],
+                colors: ['Neon Green', 'Bright Red']
+            },
+            {
+                id: 'sp_daily_02',
+                title: 'Retro Canvas Sneaker Black',
+                category: 'daily',
+                categoryLabel: 'Sepatu Daily / Canvas',
+                price: 229000,
+                originalPrice: 310000,
+                badge: 'FAVORIT TIKTOK',
+                badgeBg: 'bg-purple-600 text-white',
+                rating: 4.7,
+                reviews: 74,
+                image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu daily canvas hitam klasik dengan sol vulcanized tebal yang tahan lama. Desain timeless yang cocok dipadukan dengan celana jeans atau chino.',
+                availableSizes: [38, 39, 40, 41, 42, 43, 44],
+                colors: ['Black Vintage', 'Navy Blue']
+            },
+            {
+                id: 'sp_basket_01',
+                title: 'AirHoops High-Top Basketball',
+                category: 'basket',
+                categoryLabel: 'Sepatu Basket',
+                price: 459000,
+                originalPrice: 620000,
+                badge: 'NEW ARRIVAL',
+                badgeBg: 'bg-orange-600 text-white',
+                rating: 5.0,
+                reviews: 42,
+                image: 'https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu basket high-top dengan pelindung pergelangan kaki dari cidera saat melompat dan melakukan crossover. Grip mencengkeram lapangan indoor/outdoor.',
+                availableSizes: [40, 41, 42, 43, 44, 45],
+                colors: ['Black Orange', 'Blue Red']
+            },
+            {
+                id: 'sp_run_02',
+                title: 'ZoomFly Trail Running Green',
+                category: 'olahraga',
+                categoryLabel: 'Sepatu Olahraga / Trail',
+                price: 379000,
+                originalPrice: 510000,
+                badge: 'TOUGH TRAIL',
+                badgeBg: 'bg-teal-600 text-white',
+                rating: 4.8,
+                reviews: 63,
+                image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu olahraga luar ruangan (outdoor trail) tahan air ringan dengan sol bergerigi tebal untuk trek tanah, batuan, dan tanjakan licin.',
+                availableSizes: [39, 40, 41, 42, 43, 44],
+                colors: ['Forest Green', 'Volt Yellow']
+            },
+            {
+                id: 'sp_daily_03',
+                title: 'ComfortSlip Daily Loafers',
+                category: 'daily',
+                categoryLabel: 'Sepatu Daily / Slip On',
+                price: 269000,
+                originalPrice: 350000,
+                badge: 'PRAKTIS',
+                badgeBg: 'bg-blue-600 text-white',
+                rating: 4.7,
+                reviews: 58,
+                image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80',
+                description: 'Sepatu harian model slip-on tanpa tali yang praktis langsung pakai. Sangat nyaman untuk jalan-jalan seharian tanpa membuat kaki lelah.',
+                availableSizes: [38, 39, 40, 41, 42, 43],
+                colors: ['Charcoal Grey', 'Sand Brown']
+            },
+            {
+                id: 'sp_daily_04',
+                title: 'Urban Flex Lifestyle Sneaker',
+                category: 'daily',
+                categoryLabel: 'Sepatu Daily / Sporty Casual',
+                price: 299000,
+                originalPrice: 399000,
+                badge: 'LIMITED',
+                badgeBg: 'bg-amber-600 text-white',
+                rating: 4.9,
+                reviews: 112,
+                image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80',
+                description: 'Perpaduan gaya sporty dan casual untuk gaya sehari-hari yang stylish. Menggunakan insole memory foam ekstra empuk.',
+                availableSizes: [39, 40, 41, 42, 43],
+                colors: ['Multicolor Retro', 'Black Red']
+            }
+        ];
+
+        // Application State
+        let cart = [];
+        let activeCategory = 'all';
+        let currentModalProduct = null;
+        let selectedSize = null;
+        let selectedColor = null;
+        let appliedDiscountPercent = 0;
+        let lastOrderData = null;
+
+        // Mock Live Sales Ticker Data
+        const liveSales = [
+            "Dimas (Jakarta) baru saja membeli Anap SpeedRunner Pro Red (Size 42) - 3 menit lalu",
+            "Rian (Bandung) baru saja membeli Anap StreetWalker White (Size 40) - 7 menit lalu",
+            "Siswa TKJ (Surabaya) memboyong Anap Strike Futsal Pro (Size 41) - 12 menit lalu",
+            "Fikri (Tangerang) baru saja membeli Anap AirHoops High-Top (Size 43) - 18 menit lalu"
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts(productsData);
+            startSalesTicker();
+            loadCartFromStorage();
+        });
+
+        // Render Product Cards Grid
+        function renderProducts(items) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 text-xs">Sepatu tidak ditemukan. Coba pencarian kata kunci lain...</div>`;
+                return;
+            }
+
+            items.forEach(prod => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-3xl overflow-hidden hover:border-orange-500 transition-all duration-300 flex flex-col justify-between group relative";
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-[4/3] bg-slate-950 cursor-pointer" onclick="openQuickView('${prod.id}')">
+                        <span class="absolute top-3 left-3 z-10 text-[9px] font-black px-2.5 py-1 rounded-full ${prod.badgeBg} shadow-md">${prod.badge}</span>
+                        <img src="${prod.image}" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x450/1e293b/f8fafc?text=Anap+Sport+Shoe';" 
+                             alt="${prod.title}" 
+                             class="w-full h-full object-cover group-hover:scale-108 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+                            <span class="text-[10px] font-bold text-orange-300"><i class="fa-solid fa-eye mr-1"></i> Klik Quick View Detail</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 space-y-2 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] text-slate-400 mb-1">
+                                <span class="font-extrabold uppercase text-orange-400">${prod.categoryLabel}</span>
+                                <span><i class="fa-solid fa-star text-amber-400"></i> ${prod.rating} (${prod.reviews})</span>
+                            </div>
+                            <h3 onclick="openQuickView('${prod.id}')" class="text-sm font-black text-white group-hover:text-orange-400 transition cursor-pointer line-clamp-1">${prod.title}</h3>
+                            <p class="text-[11px] text-slate-400 line-clamp-2 mt-1">${prod.description}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-[10px] text-slate-500 line-through block">Rp ${prod.originalPrice.toLocaleString('id-ID')}</span>
+                                <span class="text-sm sm:text-base font-black text-orange-400">Rp ${prod.price.toLocaleString('id-ID')}</span>
+                            </div>
+                            <button onclick="openQuickView('${prod.id}')" class="px-3.5 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Pilih
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Category Filtering
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-orange-600', 'text-white');
+                btn.classList.add('bg-slate-900', 'text-slate-300');
+            });
+            const selectedBtn = document.getElementById(`cat-${cat}`);
+            if (selectedBtn) {
+                selectedBtn.classList.remove('bg-slate-900', 'text-slate-300');
+                selectedBtn.classList.add('bg-orange-600', 'text-white');
+            }
+
+            if (cat === 'all') {
+                renderProducts(productsData);
+            } else {
+                const filtered = productsData.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // Live Search Filter
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = productsData.filter(p => p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        function filterProductsMobile() {
+            const query = document.getElementById('searchInputMobile').value.toLowerCase();
+            const filtered = productsData.filter(p => p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Open Quick View Modal
+        function openQuickView(prodId) {
+            currentModalProduct = productsData.find(p => p.id === prodId);
+            if (!currentModalProduct) return;
+
+            selectedSize = currentModalProduct.availableSizes[0];
+            selectedColor = currentModalProduct.colors[0];
+
+            const container = document.getElementById('quickViewContent');
+            container.innerHTML = `
+                <div class="relative bg-slate-950 p-4 flex items-center justify-center">
+                    <img src="${currentModalProduct.image}" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/f8fafc?text=Anap+Sport+Shoe';"
+                         alt="${currentModalProduct.title}" 
+                         class="w-full h-64 md:h-full object-cover rounded-2xl">
+                    <span class="absolute top-4 left-4 text-[9px] font-black px-2.5 py-1 rounded-full ${currentModalProduct.badgeBg}">${currentModalProduct.badge}</span>
+                </div>
+
+                <div class="p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-[10px] font-bold text-orange-400 uppercase tracking-widest">${currentModalProduct.categoryLabel}</span>
+                            <h2 class="text-xl font-black text-white">${currentModalProduct.title}</h2>
+                            <div class="flex items-center gap-2 text-xs text-slate-400 mt-1">
+                                <span class="text-amber-400 font-bold"><i class="fa-solid fa-star"></i> ${currentModalProduct.rating}</span>
+                                <span>•</span>
+                                <span>${currentModalProduct.reviews} Ulasan Pembeli</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-500 line-through block">Harga Normal Rp ${currentModalProduct.originalPrice.toLocaleString('id-ID')}</span>
+                                <span class="text-xl font-black text-orange-400">Rp ${currentModalProduct.price.toLocaleString('id-ID')}</span>
+                            </div>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-lg border border-emerald-500/30 font-bold">HEMAT 30%</span>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed">${currentModalProduct.description}</p>
+
+                        <!-- Size Selector -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1.5">
+                                <label class="text-xs font-extrabold text-white">Pilih Ukuran Kaki (EU Size):</label>
+                                <button onclick="switchTab('size-guide'); closeQuickView();" class="text-[10px] text-orange-400 hover:underline">Lihat Size Guide</button>
+                            </div>
+                            <div class="flex flex-wrap gap-2" id="sizeSelectorGrid">
+                                ${currentModalProduct.availableSizes.map(sz => `
+                                    <button onclick="selectModalSize(${sz})" id="sizeBtn-${sz}" 
+                                            class="size-btn px-3.5 py-2 rounded-xl text-xs font-bold border ${sz === selectedSize ? 'bg-orange-600 border-orange-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-orange-500'} transition">
+                                        ${sz}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Color Selector -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-white mb-1.5">Pilih Varian Warna:</label>
+                            <div class="flex flex-wrap gap-2">
+                                ${currentModalProduct.colors.map(col => `
+                                    <button onclick="selectModalColor('${col}')" id="colorBtn-${col.replace(/\s+/g, '')}" 
+                                            class="color-btn px-3 py-1.5 rounded-xl text-xs font-semibold border ${col === selectedColor ? 'bg-slate-800 border-orange-500 text-orange-400' : 'bg-slate-950 border-slate-800 text-slate-400'} transition">
+                                        ${col}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center gap-3">
+                        <button onclick="addToCartFromModal()" class="flex-1 py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 hover:opacity-95 text-white font-black text-xs shadow-lg transition flex items-center justify-center gap-2 uppercase">
+                            <i class="fa-solid fa-cart-plus text-sm"></i> Tambah Ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        function selectModalSize(sz) {
+            selectedSize = sz;
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('bg-orange-600', 'border-orange-500', 'text-white');
+                btn.classList.add('bg-slate-950', 'border-slate-800', 'text-slate-300');
+            });
+            const btn = document.getElementById(`sizeBtn-${sz}`);
+            if (btn) {
+                btn.classList.remove('bg-slate-950', 'border-slate-800', 'text-slate-300');
+                btn.classList.add('bg-orange-600', 'border-orange-500', 'text-white');
+            }
+        }
+
+        function selectModalColor(col) {
+            selectedColor = col;
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'border-orange-500', 'text-orange-400');
+                btn.classList.add('bg-slate-950', 'border-slate-800', 'text-slate-400');
+            });
+            const btnId = `colorBtn-${col.replace(/\s+/g, '')}`;
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.classList.remove('bg-slate-950', 'border-slate-800', 'text-slate-400');
+                btn.classList.add('bg-slate-800', 'border-orange-500', 'text-orange-400');
+            }
+        }
+
+        // Add Product to Cart State
+        function addToCartFromModal() {
+            if (!currentModalProduct) return;
+
+            const cartKey = `${currentModalProduct.id}-${selectedSize}-${selectedColor}`;
+            const existingIndex = cart.findIndex(i => i.cartKey === cartKey);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    cartKey,
+                    id: currentModalProduct.id,
+                    title: currentModalProduct.title,
+                    price: currentModalProduct.price,
+                    size: selectedSize,
+                    color: selectedColor,
+                    image: currentModalProduct.image,
+                    qty: 1
+                });
+            }
+
+            saveCartToStorage();
+            updateCartUI();
+            closeQuickView();
+            showToast(`${currentModalProduct.title} (Size ${selectedSize}) berhasil masuk keranjang!`, 'success');
+            toggleCartDrawer();
+        }
+
+        // Cart Slide Drawer Actions
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const list = document.getElementById('cartItemsList');
+            const totalItemsEl = document.getElementById('cartTotalItems');
+            const totalPriceEl = document.getElementById('cartTotalPrice');
+
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalQty;
+            totalItemsEl.innerText = `${totalQty} Pasang`;
+
+            let totalPrice = 0;
+            list.innerHTML = '';
+
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-16 space-y-3">
+                        <i class="fa-solid fa-bag-shopping text-4xl text-slate-700"></i>
+                        <p class="text-xs text-slate-400 font-bold">Keranjang belanja sepatu masih kosong.</p>
+                        <button onclick="toggleCartDrawer()" class="px-4 py-2 rounded-xl bg-orange-600 text-white text-xs font-bold">Mulai Belanja</button>
+                    </div>
+                `;
+                totalPriceEl.innerText = 'Rp 0';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const sub = item.price * item.qty;
+                totalPrice += sub;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = "p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3 relative";
+                
+                itemRow.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover bg-slate-900 border border-slate-800 flex-shrink-0">
+                    <div class="flex-1 space-y-1">
+                        <h4 class="text-xs font-bold text-white line-clamp-1">${item.title}</h4>
+                        <div class="flex items-center gap-2 text-[10px] text-slate-400">
+                            <span class="bg-slate-800 px-1.5 py-0.5 rounded text-orange-400 font-bold">Size ${item.size}</span>
+                            <span>${item.color}</span>
+                        </div>
+                        <p class="text-xs font-extrabold text-orange-400">Rp ${item.price.toLocaleString('id-ID')}</p>
+                    </div>
+
+                    <div class="flex flex-col items-end gap-1">
+                        <button onclick="removeFromCart(${index})" class="text-slate-500 hover:text-rose-400 text-xs p-1"><i class="fa-solid fa-trash"></i></button>
+                        <div class="flex items-center border border-slate-800 rounded-lg bg-slate-900 overflow-hidden text-xs">
+                            <button onclick="changeQty(${index}, -1)" class="px-2 py-0.5 text-slate-300 hover:bg-slate-800">-</button>
+                            <span class="px-2 font-bold text-white text-[11px]">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)" class="px-2 py-0.5 text-slate-300 hover:bg-slate-800">+</button>
+                        </div>
+                    </div>
+                `;
+                list.appendChild(itemRow);
+            });
+
+            totalPriceEl.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+
+        function changeQty(index, delta) {
+            if (cart[index]) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                saveCartToStorage();
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCartToStorage();
+            updateCartUI();
+            showToast('Item berhasil dihapus dari keranjang', 'info');
+        }
+
+        function saveCartToStorage() {
+            localStorage.setItem('anap_cart', JSON.stringify(cart));
+        }
+
+        function loadCartFromStorage() {
+            const saved = localStorage.getItem('anap_cart');
+            if (saved) {
+                try {
+                    cart = JSON.parse(saved);
+                    updateCartUI();
+                } catch(e) { cart = []; }
+            }
+        }
+
+        // Checkout Modal Logic
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast('Keranjang Anda kosong! Tambahkan sepatu terlebih dahulu.', 'error');
+                return;
+            }
+            toggleCartDrawer();
+            updateGrandTotalCheckout();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function applyCheckoutPromo() {
+            const code = document.getElementById('checkoutPromoInput').value.trim().toUpperCase();
+            if (code === 'ANAP10') {
+                appliedDiscountPercent = 10;
+                showToast('Voucher ANAP10 Berhasil! Diskon 10% diterapkan.', 'success');
+            } else if (code === 'TKJSPORT') {
+                appliedDiscountPercent = 15;
+                showToast('Voucher Spesial TKJSPORT Berhasil! Diskon 15% diterapkan.', 'success');
+            } else {
+                appliedDiscountPercent = 0;
+                showToast('Kode voucher tidak ditemukan!', 'error');
+            }
+            updateGrandTotalCheckout();
+        }
+
+        function updateGrandTotalCheckout() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shippingCost = parseInt(document.getElementById('courierSelect').value) || 15000;
+            
+            let discountAmount = 0;
+            if (appliedDiscountPercent > 0) {
+                discountAmount = Math.round((subtotal * appliedDiscountPercent) / 100);
+                document.getElementById('coDiscountRow').classList.remove('hidden');
+                document.getElementById('coDiscountVal').innerText = `-Rp ${discountAmount.toLocaleString('id-ID')}`;
+            } else {
+                document.getElementById('coDiscountRow').classList.add('hidden');
+            }
+
+            const grandTotal = subtotal + shippingCost - discountAmount;
+
+            document.getElementById('coSubtotal').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('coShipping').innerText = `Rp ${shippingCost.toLocaleString('id-ID')}`;
+            document.getElementById('coGrandTotal').innerText = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+        }
+
+        // Form Checkout Submission & Generating Payment Invoice
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const payMethod = document.getElementById('paySelect').value;
+            const shippingCost = parseInt(document.getElementById('courierSelect').value);
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const discountAmount = appliedDiscountPercent > 0 ? Math.round((subtotal * appliedDiscountPercent) / 100) : 0;
+            const grandTotal = subtotal + shippingCost - discountAmount;
+
+            const invCode = 'ANAP-' + Math.floor(100000 + Math.random() * 900000);
+
+            lastOrderData = {
+                invCode,
+                name,
+                phone,
+                address,
+                payMethod,
+                grandTotal,
+                items: [...cart]
+            };
+
+            // Populate Invoice Modal
+            document.getElementById('invNo').innerText = invCode;
+            document.getElementById('invName').innerText = name;
+            document.getElementById('invPay').innerText = payMethod;
+            document.getElementById('invTotal').innerText = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+
+            closeCheckoutModal();
+            document.getElementById('invoiceModal').classList.remove('hidden');
+
+            if (payMethod.includes('WhatsApp')) {
+                sendOrderToWhatsApp();
+            }
+        }
+
+        function closeInvoiceModal() {
+            document.getElementById('invoiceModal').classList.add('hidden');
+        }
+
+        function sendOrderToWhatsApp() {
+            if (!lastOrderData) return;
+
+            let itemsText = lastOrderData.items.map((item, i) => 
+                `${i + 1}. *${item.title}*\n   - Size: ${item.size} | Warna: ${item.color}\n   - Qty: ${item.qty} pasang x Rp ${item.price.toLocaleString('id-ID')}`
+            ).join('\n');
+
+            let message = `Halo Admin Anap Sport 👋,\n\nSaya mau konfirmasi pesanan sepatu berikut:\n\n*INVOICE:* ${lastOrderData.invCode}\n*Nama:* ${lastOrderData.name}\n*No. HP/WA:* ${lastOrderData.phone}\n*Alamat:* ${lastOrderData.address}\n*Metode Bayar:* ${lastOrderData.payMethod}\n\n*DAFTAR SEPATU:* \n${itemsText}\n\n*TOTAL PEMBAYARAN:* Rp ${lastOrderData.grandTotal.toLocaleString('id-ID')}\n\nMohon diproses ya admin, terima kasih!`;
+
+            let waUrl = `https://wa.me/6285817168706?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function simulatePaymentSuccess() {
+            closeInvoiceModal();
+            showToast('Pembayaran Berhasil! Pesanan Sepatu Anap Sport sedang dikemas.', 'success');
+
+            // Reset Cart State
+            cart = [];
+            saveCartToStorage();
+            updateCartUI();
+
+            // Redirect to Order Tracking View
+            switchTab('check-order');
+            document.getElementById('trackOrderInput').value = lastOrderData ? lastOrderData.invCode : 'ANAP-98123';
+            trackOrderProcess();
+        }
+
+        // Order Tracker Action
+        function trackOrderProcess() {
+            const query = document.getElementById('trackOrderInput').value.trim();
+            if (!query) {
+                showToast('Masukkan nomor resi / invoice terlebih dahulu!', 'error');
+                return;
+            }
+            document.getElementById('trackResultContainer').classList.remove('hidden');
+            showToast('Resi transaksi Anap Sport ditemukan!', 'success');
+        }
+
+        // Tab Navigation Handler
+        function switchTab(tabName) {
+            ['home', 'check-order', 'size-guide', 'about'].forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(`view-${tabName}`);
+            if (target) target.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Live Ticker Animation
+        function startSalesTicker() {
+            let idx = 0;
+            const el = document.getElementById('liveSalesTicker');
+            if (!el) return;
+
+            setInterval(() => {
+                el.innerHTML = `<i class="fa-solid fa-shoe-prints text-orange-400 mr-2"></i> ${liveSales[idx]}`;
+                idx = (idx + 1) % liveSales.length;
+            }, 4000);
+        }
+
+        // Custom Toast Helper
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toastMsg');
+            const icon = document.getElementById('toastIcon');
+
+            msg.innerText = message;
+            if (type === 'error') {
+                icon.className = 'fa-solid fa-circle-exclamation text-rose-400 text-lg';
+                toast.classList.replace('border-orange-500', 'border-rose-500');
+            } else if (type === 'info') {
+                icon.className = 'fa-solid fa-circle-info text-cyan-400 text-lg';
+                toast.classList.replace('border-rose-500', 'border-cyan-500');
+            } else {
+                icon.className = 'fa-solid fa-circle-check text-emerald-400 text-lg';
+                toast.classList.replace('border-rose-500', 'border-orange-500');
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
